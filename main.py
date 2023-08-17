@@ -115,10 +115,17 @@ class ImageViewerApp:
             image_np = np.array(self.image)
             hsv_image = cv2.cvtColor(image_np, cv2.COLOR_RGB2HSV)
 
-            lower_red = np.array([0, 100, 100])  # Rango mínimo para el rojo en HSV
-            upper_red = np.array([12, 255, 255])  # Rango máximo para el rojo en HSV
+            # Ajustar el rango de tonos para capturar rojos más intensos
+            lower_red1 = np.array([0, 100, 100])  # Rango mínimo para el rojo en HSV (hacia los tonos bajos)
+            upper_red1 = np.array([10, 255, 255])  # Rango máximo para el rojo en HSV (hacia los tonos bajos)
 
-            mask = cv2.inRange(hsv_image, lower_red, upper_red)
+            lower_red2 = np.array([160, 100, 100])  # Rango mínimo para el rojo en HSV (hacia los tonos altos)
+            upper_red2 = np.array([179, 255, 255])  # Rango máximo para el rojo en HSV (hacia los tonos altos)
+
+            mask1 = cv2.inRange(hsv_image, lower_red1, upper_red1)
+            mask2 = cv2.inRange(hsv_image, lower_red2, upper_red2)
+            mask = cv2.bitwise_or(mask1, mask2)
+
             red_pixels = cv2.bitwise_and(image_np, image_np, mask=mask)
 
             red_image = Image.fromarray(red_pixels)
