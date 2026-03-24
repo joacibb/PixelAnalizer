@@ -1,0 +1,66 @@
+# PixelAnalizer — Color Range Configuration (Scientific Land Cover)
+# All values follow OpenCV HSV convention:
+#   Hue:        0-179
+#   Saturation: 0-255
+#   Value:      0-255
+
+colors:
+  # ------------------------------------------------------------------
+  # Vegetation
+  # ------------------------------------------------------------------
+  high_vegetation:
+    display_name: "Vegetación Densa"
+    hue_lower1: 45
+    hue_upper1: 85
+    sat_min: 60
+    val_min: 30
+    val_max: 120
+    dual_range: false
+
+  moderate_vegetation:
+    display_name: "Vegetación Media"
+    hue_lower1: 39
+    hue_upper1: 85
+    sat_min: 50
+    val_min: 121
+    dual_range: false
+
+  sparse_vegetation:
+    display_name: "Vegetación Escasa / Seca"
+    hue_lower1: 30
+    hue_upper1: 42
+    sat_min: 40
+    val_min: 80
+    dual_range: false
+
+  # ------------------------------------------------------------------
+  # Soils & Water
+  # ------------------------------------------------------------------
+  arid_soil:
+    display_name: "Suelo Árido / Arena"
+    hue_lower1: 15
+    hue_upper1: 29
+    sat_min: 30
+    val_min: 80
+    dual_range: false
+
+  water:
+    display_name: "Cuerpos de Agua"
+    hue_lower1: 90    # Slightly wider blue
+    hue_upper1: 150
+    sat_min: 20     # Lower saturation to capture deep/murky water
+    val_min: 5      # Much lower value (water is dark)
+    val_max: 150    # Upper limit to avoid clouds
+    dual_range: false
+
+  # ------------------------------------------------------------------
+  # Non-Land Features
+  # ------------------------------------------------------------------
+  clouds_snow:
+    display_name: "Nubes / Nieve"
+    hue_lower1: 0
+    hue_upper1: 179
+    sat_min: 0
+    sat_max: 45     # Low saturation (white/gray)
+    val_min: 160    # Bright regions
+    dual_range: false
