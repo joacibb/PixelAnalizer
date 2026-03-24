@@ -79,4 +79,13 @@ high_vegetation:
 ```
 
 ---
+
+## 🔓 Open Source & Licencia
+
+Este proyecto es **Open Source** y está distribuido bajo la licencia **MIT**. 
+
+- **Uso Libre**: Podés usarlo, modificarlo y distribuirlo gratuitamente para fines personales, educativos o comerciales.
+- **Contribuciones**: ¡Las contribuciones son bienvenidas! Si tenés mejoras para los algoritmos de detección o la UI, no dudes en abrir un *Pull Request*.
+
+---
 *Desarrollado y refactorizado profesionalmente para el análisis geoespacial avanzado.*
